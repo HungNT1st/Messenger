@@ -1,18 +1,18 @@
 "use client";
 
 import React, { Fragment } from "react";
-import { Dialog, Transition } from "@headlessui/react";
+import { Dialog, DialogPanel, Transition, TransitionChild } from "@headlessui/react";
 import { ClipLoader } from "react-spinners";
 
 const LoadingModal = () => {
   return (
-    <Transition.Root show as={Fragment}>
+    <Transition show as={Fragment}>
       <Dialog 
         as="div" 
         className="relative z-50" 
         onClose={() => {}}
       >
-        <Transition.Child
+        <TransitionChild
           as={Fragment}
           enter="ease-out duration-300"
           enterFrom="opacity-0"
@@ -30,7 +30,7 @@ const LoadingModal = () => {
               transition-opacity
             "
           />
-        </Transition.Child>
+        </TransitionChild>
 
         <div
           className="
@@ -48,13 +48,13 @@ const LoadingModal = () => {
             p-4
             text-center
           ">
-            <Dialog.Panel>
+            <DialogPanel>
               <ClipLoader size={40} color="#0284c7" />
-            </Dialog.Panel>
+            </DialogPanel>
           </div>
         </div>
       </Dialog>
-    </Transition.Root>
+    </Transition>
   );
 }
 
